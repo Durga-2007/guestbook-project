@@ -1,4 +1,10 @@
+import collections
+import collections.abc
 from flask import Flask
+
+# Compatibility fix for nose on Python 3.10+
+if not hasattr(collections, "Callable"):
+    collections.Callable = collections.abc.Callable
 
 app = Flask(__name__)
 

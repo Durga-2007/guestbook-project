@@ -1,5 +1,11 @@
+import collections
+import collections.abc
 import unittest
 from app import app
+
+# Compatibility fix for nose on Python 3.10+
+if not hasattr(collections, "Callable"):
+    collections.Callable = collections.abc.Callable
 
 
 class TestGuestbook(unittest.TestCase):
