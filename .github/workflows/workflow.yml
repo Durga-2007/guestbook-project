@@ -26,6 +26,7 @@ jobs:
           pip install -r requirements.txt
           pip install flake8
           pip install nose
+          python -c "import site, os; open(os.path.join(site.getsitepackages()[0], 'sitecustomize.py'), 'w').write('import collections, collections.abc\nif not hasattr(collections, \"Callable\"): collections.Callable = collections.abc.Callable\n')"
 
       - name: Lint with flake8
         run: |
